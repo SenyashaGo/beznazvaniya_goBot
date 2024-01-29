@@ -9,11 +9,11 @@ func (bot *Bot) Commands(update tgbotapi.Update) {
 	switch update.Message.Command() {
 	case "start":
 		msg := tgbotapi.NewMessage(update.Message.Chat.ID, "Здравствуйте! Сначала Вам необходимо пройти "+
-			"регистрацию, для этого нажмите команду /reg")
-		//msg.ReplyMarkup = startKeyboard
+			"регистрацию, для этого нажмите команду /registration")
+		msg.ReplyMarkup = startKeyboard
 		bot.api.Send(msg)
 		return
-	case "reg":
+	case "registration":
 		msg := tgbotapi.NewMessage(update.Message.Chat.ID, "Отправьте мне токен на свою Яндекс Музыку,"+
 			" если вы не знаете как его получить, нажмите кнопку инструкция")
 		bot.api.Send(msg)
